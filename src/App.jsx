@@ -3,7 +3,7 @@ import Homepage from './pages/Homepage';
 import Shop from './pages/Shop';
 import Navbar from './components/Navbar';
 import './App.css';
-import './cartUtils.js';
+import { applyQuantity } from './cartUtils.js';
 
 import { useMemo, useEffect, useState } from 'react';
 
@@ -36,7 +36,15 @@ function App() {
       <Navbar cartQuantity={cartQuantity} />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/shop"
+          element={
+            <Shop
+              updateCartItem={updateCartItem}
+              getCartItemQuantity={getCartItemQuantity}
+            />
+          }
+        />
       </Routes>
     </div>
   );

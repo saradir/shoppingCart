@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // optional if you want to style it
 
-const Navbar = ({ cartQuantity }) => {
+function Navbar({ cartQuantity }) {
   return (
     <nav className="navbar">
       <Link to="/">Home</Link>
@@ -17,5 +17,5 @@ const Navbar = ({ cartQuantity }) => {
       </Link>
     </nav>
   );
-};
+}
 export default Navbar;

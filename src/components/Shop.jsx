@@ -1,4 +1,4 @@
-import ProductList from '../components/ProductList';
+import ProductList from './ProductList';
 
 function Shop({ updateCartItem, getCartItemQuantity }) {
   // Example products, replace with actual data or fetch from an API
