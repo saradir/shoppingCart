@@ -8,10 +8,7 @@ function CartPane({ cart, catalogue, updateCartItem }) {
       ) : (
         <ul>
           {entries.map(([id, qty]) => {
-            const product = Array.isArray(catalogue)
-              ? catalogue.find(p => p.id === id)
-              : catalogue?.[id];
-
+            const product = catalogue[id];
             if (!product) return null;
 
             const lineTotal = qty * product.price;
