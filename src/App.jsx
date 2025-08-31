@@ -42,6 +42,7 @@ function App() {
             <Shop
               updateCartItem={updateCartItem}
               getCartItemQuantity={getCartItemQuantity}
+              cart={cart}
             />
           }
         />

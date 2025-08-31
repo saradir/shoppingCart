@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ProductCard = ({ product, qty, onCommit }) => {
+  const id = product.id;
   const [quantity, setQuantity] = useState(qty || 0);
   useEffect(() => {
     setQuantity(qty || 0);
@@ -17,12 +18,12 @@ const ProductCard = ({ product, qty, onCommit }) => {
         min="0"
         step="1"
         onChange={(e) => {
-          const value = e.target.value;
+          const value = Number(e.target.value);
           if (Number.isNaN(value) || value < 0) return; // Ensure valid input
           setQuantity(Number(value));
         }}
       />
-      <button onClick={() => onCommit(product.id, quantity)}>
+      <button onClick={() => onCommit(id, quantity)}>
         {' '}
         {quantity > 0 ? 'Update' : 'Add to'} Cart{' '}
       </button>
