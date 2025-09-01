@@ -8,7 +8,7 @@ const ProductCard = ({ product, qty, onCommit }) => {
   }, [qty]);
   return (
     <div className="product-card">
-      <h3>{product.name}</h3>
+      <h3>{product.title}</h3>
       <p>${product.price}</p>
       <label htmlFor={`qty-${product.id}`}>Quantity:</label>
       <input
