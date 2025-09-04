@@ -18,6 +18,7 @@ module.exports = [
         }
       }
     },
+    
     plugins: {
       react,
       'react-hooks': reactHooks,
@@ -36,4 +37,9 @@ module.exports = [
     },
     ignores: ['node_modules', 'dist'],
   },
+  {
+  "env": {
+    "browser": true
+  }
+}
 ];
