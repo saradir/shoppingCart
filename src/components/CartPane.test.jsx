@@ -18,4 +18,17 @@ describe('test CartPane', () => {
     expect(productName).toBeInTheDocument();
     expect(quantity).toBeInTheDocument();
   });
+  it('removes products from cart', async () => {
+    const cart = { 1: 2 };
+    const catalogue = [{ id: '1', title: 'Test Product', price: 10 }];
+    const updateCart = vi.fn();
+    render(
+      <CartPane cart={cart} catalogue={catalogue} updateCartItem={updateCart} />
+    );
+
+    const button = screen.getByRole('button', { name: /remove/i });
+    await userEvent.click(button);
+
+    expect(updateCart).toBeCalledWith('1', 0);
+  });
 });
