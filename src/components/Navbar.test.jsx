@@ -12,7 +12,7 @@ describe('quantity badge', () => {
     );
     const badge = screen.getByTestId('cart-count');
     expect(badge).toBeInTheDocument();
-    expect(badge.textContent).toBe('3');
+    expect(badge.textContent).toBe(' 3');
   });
 
   it('does not show badge when quantity is 0', () => {

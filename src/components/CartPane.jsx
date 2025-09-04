@@ -19,7 +19,7 @@ function CartPane({ cart, catalogue, updateCartItem }) {
             const lineTotal = qty * product.price;
             return (
               <li key={id} className="cart-item">
-                <span>{product.title}</span>
+                <span className='product-name'>{product.title}</span>
                 <span>Qty: {qty}</span>
                 <span>Total: {lineTotal}</span>
                 <button onClick={() => updateCartItem(id, 0)}>Remove</button>
