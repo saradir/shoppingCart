@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../styles/ProductCard.module.css';
 
 const ProductCard = ({ product, qty, onCommit }) => {
   const id = product.id;
@@ -7,7 +8,8 @@ const ProductCard = ({ product, qty, onCommit }) => {
     setQuantity(qty || 0);
   }, [qty]);
   return (
-    <div className="product-card">
+    <div className={styles.productCard}>
+      <img className={styles.productImg} src={product.image}></img>
       <h3>{product.title}</h3>
       <p>${product.price}</p>
       <label htmlFor={`qty-${product.id}`}>Quantity:</label>

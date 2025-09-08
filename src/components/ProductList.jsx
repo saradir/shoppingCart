@@ -2,9 +2,8 @@ import ProductCard from './ProductCard';
 
 function ProductList({ catalogue, updateCartItem, getCartItemQuantity }) {
   return (
-    <div>
+    <>
       {catalogue.map((product) => {
-        console.log(`created product ${product.id}`);
         return (
           <ProductCard
             key={product.id}
@@ -14,7 +13,7 @@ function ProductList({ catalogue, updateCartItem, getCartItemQuantity }) {
           />
         );
       })}
-    </div>
+    </>
   );
 }
 export default ProductList;

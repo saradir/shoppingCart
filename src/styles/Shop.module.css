@@ -1,0 +1,37 @@
+.mainContainer {
+  margin: 0 auto;      /* center horizontally */
+  box-sizing: border-box;
+  width: 100%;         /* allow it to shrink */
+  display: flex;   
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  padding-right: 0;
+  
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Catalogue takes remaining space */
+.catalogue {
+  display: flex;
+  flex-wrap: wrap;      
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Cart stays fixed-ish on the right */
+.cartPane {
+  width: 300px;
+  position: sticky;
+  top: 2rem;
+  background: #413e3e;
+  padding: 1rem;
+ height: calc(100vh - 2.5rem);          
+  overflow-y: auto;
+  
+
+}

@@ -1,0 +1,19 @@
+.productCard{
+  flex: 0 1 calc(33.33% - 300px); /* allows wrapping */
+  min-width: 220px;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  padding: 5px;
+  margin: 5px;
+  border: rgb(177, 167, 167) solid 1px;
+  box-sizing: border-box;
+}
+
+.productImg{
+    height: 60%;
+    width: auto;
+
+}

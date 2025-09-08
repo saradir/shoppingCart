@@ -1,4 +1,6 @@
 import { useMemo } from 'react';
+import CartItem from './CartItem';
+
 function CartPane({ cart, catalogue, updateCartItem }) {
   const entries = Object.entries(cart);
   const catalogueById = useMemo(
@@ -11,22 +13,20 @@ function CartPane({ cart, catalogue, updateCartItem }) {
       {entries.length === 0 ? (
         'Your cart is empty'
       ) : (
-        <ul>
+        <div className='itemContainer'>
           {entries.map(([id, qty]) => {
             const product = catalogueById[id];
             if (!product) return null;
 
-            const lineTotal = qty * product.price;
             return (
-              <li key={id} className="cart-item">
-                <span className='product-name'>{product.title}</span>
-                <span>Qty: {qty}</span>
-                <span>Total: {lineTotal}</span>
-                <button onClick={() => updateCartItem(id, 0)}>Remove</button>
-              </li>
+              <CartItem id={id} 
+              product={product}
+              qty={qty}
+              updateCartItem={updateCartItem}
+               />
             );
           })}
-        </ul>
+        </div>
       )}
     </div>
   );
