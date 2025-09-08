@@ -19,7 +19,8 @@ function CartPane({ cart, catalogue, updateCartItem }) {
             if (!product) return null;
 
             return (
-              <CartItem id={id} 
+              <CartItem key={id} 
+              id={id}
               product={product}
               qty={qty}
               updateCartItem={updateCartItem}
