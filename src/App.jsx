@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Shop from './pages/Shop';
 import Navbar from './components/Navbar';
-import './App.css';
+import './styles/App.css'
 import { applyQuantity } from './cartUtils.js';
 
 import { useMemo, useEffect, useState } from 'react';

@@ -4,6 +4,8 @@ import styles from '../styles/ProductCard.module.css';
 const ProductCard = ({ product, qty, onCommit }) => {
   const id = product.id;
   const [quantity, setQuantity] = useState(qty || 0);
+  const increase = () => setQuantity( (q) => q + 1);
+  const decrease = () => setQuantity( (q) => q - 1);
   useEffect(() => {
     setQuantity(qty || 0);
   }, [qty]);
@@ -13,6 +15,7 @@ const ProductCard = ({ product, qty, onCommit }) => {
       <h3>{product.title}</h3>
       <p>${product.price}</p>
       <label htmlFor={`qty-${product.id}`}>Quantity:</label>
+      <button onClick={increase}> + </button>
       <input
         id={`qty-${product.id}`}
         type="number"
@@ -25,7 +28,8 @@ const ProductCard = ({ product, qty, onCommit }) => {
           setQuantity(Number(value));
         }}
       />
-      <button onClick={() => onCommit(id, quantity)}>
+      <button onClick={decrease}> - </button>
+      <button value={quantity} onClick={() => onCommit(id, quantity)}>
         {' '}
         {quantity > 0 ? 'Update' : 'Add to'} Cart{' '}
       </button>
