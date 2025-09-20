@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import CartItem from './CartItem';
+import styles from '../styles/CartPane.module.css'
 
 function CartPane({ cart, catalogue, updateCartItem }) {
   const entries = Object.entries(cart);
@@ -8,12 +9,12 @@ function CartPane({ cart, catalogue, updateCartItem }) {
     [catalogue]
   );
   return (
-    <div className="cart-pane">
+    <div className={styles.cartPane}>
       <h2>Shopping Cart</h2>
       {entries.length === 0 ? (
         'Your cart is empty'
       ) : (
-        <div className='itemContainer'>
+        <div className={styles.itemContainer}>
           {entries.map(([id, qty]) => {
             const product = catalogueById[id];
             if (!product) return null;
