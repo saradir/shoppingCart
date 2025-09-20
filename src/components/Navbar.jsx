@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // optional if you want to style it
+import styles from '../styles/Navbar.module.css';
 
 function Navbar({ cartQuantity }) {
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
       <Link to="/cart">
