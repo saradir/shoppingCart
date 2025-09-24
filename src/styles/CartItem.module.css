@@ -1,6 +1,7 @@
 
 .cartItem {
   display: flex;
+  position: relative;
   align-items: center;
   gap: 1rem;
   padding: 1rem 0.5rem;
@@ -40,6 +41,7 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 5px;
+  margin:5px;
 }
 
 .productName {
@@ -86,4 +88,34 @@
   border-radius: 6px;
   background: #1e1e1e;
   color: #eee;
+}
+
+.removeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+  margin-left: 1rem;
+}
+
+.removeBtn:hover {
+  color: #e53935;              /* red on hover to signal delete */
+}
+
+
+.updateBtn {
+  height: 32px;
+  width: 80px;          /* reserve space */
+  visibility: hidden;   /* invisible but space still reserved */
+}
+
+.updateBtn.active {
+  visibility: visible;
 }
