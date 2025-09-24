@@ -6,6 +6,7 @@ import './styles/App.css'
 import { applyQuantity } from './cartUtils.js';
 
 import { useMemo, useEffect, useState } from 'react';
+import CheckoutPage from './pages/CheckoutPage.jsx';
 
 function App() {
   // cart = { productId: quantity }
@@ -46,6 +47,12 @@ function App() {
             />
           }
         />
+        <Route path="/checkout" element={
+          <CheckoutPage
+            cart={cart}
+            />
+          }
+          />
       </Routes>
     </div>
   );
