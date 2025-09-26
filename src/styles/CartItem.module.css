@@ -111,11 +111,26 @@
 
 
 .updateBtn {
-  height: 32px;
-  width: 80px;          /* reserve space */
-  visibility: hidden;   /* invisible but space still reserved */
+  width: 100px;
+  height: 30px;
+  background: #4caf50;     /* green accent */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  visibility: hidden;      /* keep space reserved */
+  opacity: 0;              /* smooth fade */
+  font-size: 0.8rem;
 }
 
 .updateBtn.active {
   visibility: visible;
+  opacity: 1;
+}
+
+.updateBtn:hover:not(:disabled) {
+  background: #388e3c;     /* darker green hover */
 }

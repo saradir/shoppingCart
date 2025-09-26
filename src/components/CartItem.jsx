@@ -5,7 +5,7 @@ import { isVisible } from "@testing-library/user-event/dist/cjs/utils/index.js";
 function CartItem({key, id, product, qty, updateCartItem}){
             const [localQty, setLocalQty] = useState(qty);
             const increase = () => setLocalQty( (q) => q + 1);
-            const decrease = () => setLocalQty( (q) => q - 1);
+            const decrease = () => setLocalQty((prev) => Math.max(1, prev - 1)); // can't go below 1
             
   // sync immediately before paint
   useLayoutEffect(() => {
@@ -33,9 +33,12 @@ function CartItem({key, id, product, qty, updateCartItem}){
       <div className={styles.qtyControl}>
         <button onClick={increase}> + </button>
         <input 
+          min="0"
           type="number" 
           value={localQty} 
-          onChange={(e) => setLocalQty(Number(e.target.value))} 
+          onChange={(e) =>   
+            {const value = Math.max(1, Number(e.target.value));
+            setLocalQty(value);}} // this is to make sure user doesn't input negatives
         />
         <button onClick={decrease}> - </button>
       </div>
