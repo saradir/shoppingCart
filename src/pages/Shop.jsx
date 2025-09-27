@@ -3,7 +3,9 @@ import CartPane from '../components/CartPane';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Shop.module.css';
 
-function Shop({ updateCartItem, getCartItemQuantity, cart }) {
+function Shop({ updateCartItem, getCartItemQuantity, cart, catalogue }) {
+
+  /*
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [catalogue, setCatalogue] = useState(null);
@@ -23,6 +25,7 @@ function Shop({ updateCartItem, getCartItemQuantity, cart }) {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
+  */
   return (
     <div className={styles.mainContainer}>
       <h1>Shop</h1>

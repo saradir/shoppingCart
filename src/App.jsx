@@ -8,9 +8,15 @@ import { applyQuantity } from './cartUtils.js';
 import { useMemo, useEffect, useState } from 'react';
 import CheckoutPage from './pages/CheckoutPage.jsx';
 
+
+
 function App() {
   // cart = { productId: quantity }
   const [cart, setCart] = useState({});
+  const [catalogue, setCatalogue] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   function updateCartItem(productId, quantity) {
     setCart((prevCart) => {
@@ -26,10 +32,21 @@ function App() {
     return Object.values(cart).reduce((total, quantity) => total + quantity, 0);
   }, [cart]);
 
-  useEffect(() => {
-    // This effect could be used to sync cart with localStorage or an API
-    console.log('Cart updated:', cart);
-  }, [cart]);
+    useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error('server error');
+        }
+        return response.json();
+      })
+      .then((data) => setCatalogue(data))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
 
   // Pass cart and update functions to Navbar
   return (
@@ -44,12 +61,14 @@ function App() {
               updateCartItem={updateCartItem}
               getCartItemQuantity={getCartItemQuantity}
               cart={cart}
+              catalogue={catalogue}
             />
           }
         />
         <Route path="/checkout" element={
           <CheckoutPage
             cart={cart}
+            catalogue={catalogue}
             />
           }
           />

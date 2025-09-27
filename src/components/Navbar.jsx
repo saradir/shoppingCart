@@ -7,7 +7,7 @@ function Navbar({ cartQuantity }) {
     <nav className={styles.navbar}>
       <Link to="/">Home</Link>
       <Link to="/shop">Shop</Link>
-      <Link to="/cart">
+      <Link to="/checkout">
         🛒
         {cartQuantity > 0 && (
           <span className="cart-count" data-testid="cart-count">

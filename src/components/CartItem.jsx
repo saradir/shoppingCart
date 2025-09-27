@@ -2,7 +2,7 @@ import { useState, useLayoutEffect } from "react";
 import styles from '../styles/CartItem.module.css';
 import { isVisible } from "@testing-library/user-event/dist/cjs/utils/index.js";
 
-function CartItem({key, id, product, qty, updateCartItem}){
+function CartItem({ id, product, qty, updateCartItem}){
             const [localQty, setLocalQty] = useState(qty);
             const increase = () => setLocalQty( (q) => q + 1);
             const decrease = () => setLocalQty((prev) => Math.max(1, prev - 1)); // can't go below 1
