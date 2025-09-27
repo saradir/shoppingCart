@@ -9,7 +9,7 @@ function ProductList({ catalogue, updateCartItem, getCartItemQuantity }) {
             key={product.id}
             product={product}
             qty={getCartItemQuantity(product.id)}
-            onCommit={updateCartItem}
+            updateCartItem={updateCartItem}
           />
         );
       })}
