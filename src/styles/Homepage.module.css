@@ -1,0 +1,57 @@
+/* Homepage.module.css */
+
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #121212;
+  color: #eee;
+  text-align: center;
+}
+
+.mainContainer h1,
+.mainContainer p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.mainContainer h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  animation-delay: 0s;
+}
+
+.mainContainer p:nth-of-type(1) {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 1rem;
+  animation-delay: 0.6s;
+}
+
+.mainContainer p:nth-of-type(2) {
+  font-size: 1.2rem;
+  animation-delay: 1.2s;
+}
+
+.shopLink {
+  color: #4caf50;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.shopLink:hover {
+  color: #81c784;        /* lighter green on hover */
+  text-decoration: underline;
+}
+/* Fade-up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
