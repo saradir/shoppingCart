@@ -43,7 +43,7 @@ function CartItem({key, id, product, qty, updateCartItem}){
         <button onClick={decrease}> - </button>
       </div>
 
-      <span>Total: ${(product.price * qty).toFixed(2)}</span>
+      <span className={styles.cartItemTotal}>Total: ${(product.price * qty).toFixed(2)}</span>
 
       <button 
         onClick={() => updateCartItem(id, localQty)}   
