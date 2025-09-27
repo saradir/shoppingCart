@@ -12,6 +12,12 @@ function CartPane({ cart, catalogue, updateCartItem }) {
     () => Object.fromEntries(catalogue.map((p) => [p.id, p])),
     [catalogue]
   );
+
+  const total = () =>
+    Object.entries(cart).reduce((sum, [id, qty]) => {
+      const product = catalogueById[id];
+      return product ? sum + product.price * qty : sum;
+    }, 0);
   return (
     <div className={styles.cartPane}>
       <div className={styles.header}>
@@ -40,6 +46,9 @@ function CartPane({ cart, catalogue, updateCartItem }) {
         )}
       </div>
       <div className={styles.footer}>
+        <div className={styles.cartTotal}>
+          Total: ${total().toFixed(2)}
+        </div>
         <button
          className={styles.checkoutBtn}
          disabled = {entries.length === 0}

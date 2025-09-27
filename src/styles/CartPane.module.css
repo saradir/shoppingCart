@@ -12,6 +12,8 @@
   flex-shrink: 0;
 }
 .footer{
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
   bottom: 1rem;
   display: flex;
@@ -72,4 +74,13 @@
 
 .itemContainer::-webkit-scrollbar-thumb:hover {
   background: #666;
+}
+
+.cartTotal {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  align-self: flex-start;
 }
