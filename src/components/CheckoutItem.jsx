@@ -11,11 +11,12 @@ function CheckoutItem({ id, product, qty, updateCartItem}){
     setLocalQty(qty);
   }, [qty]);
 
-  
+
   return (
   <div className={styles.checkoutItem}>
     <button 
-      className={styles.removeBtn} 
+      className={styles.removeBtn}
+      aria-label="Remove item" 
       onClick={() => updateCartItem(id, 0)}
     >
       ×

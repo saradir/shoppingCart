@@ -15,6 +15,7 @@ function CartItem({ id, product, qty, updateCartItem}){
   <div className={styles.cartItem}>
     <button 
       className={styles.removeBtn} 
+      aria-label="Remove item"
       onClick={() => updateCartItem(id, 0)}
     >
       ×

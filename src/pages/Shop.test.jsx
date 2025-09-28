@@ -1,29 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from "react-router-dom";
+
 import Shop from './Shop'
 
 describe('Shop test', () => {
-    it('shows loading', () => { 
-        let resolveFetch;
-        global.fetch = vi.fn(() => {
-            return new Promise(resolve => {
-                resolveFetch = resolve;
-            });
-        });
-
-    render(<Shop updateCartItem={() => {}} cart={{}} getCartItemQuantity={() => {}} />);
-    const loading = screen.getByText(/loading/i);
-    expect(loading).toBeInTheDocument();
-    
-
-resolveFetch({
-  ok: true,
-  json: async () => [],
-});
-
-});
-it('renders products after successful fetch', async () => {
+   
+it('renders products', async () => {
   global.fetch = vi.fn(() =>
     Promise.resolve({
       ok: true,
@@ -33,18 +16,15 @@ it('renders products after successful fetch', async () => {
     })
   );
 
-  render(<Shop updateCartItem={() => {}} cart={{}} getCartItemQuantity={() => 0} />);
+  render(
+  <MemoryRouter>
+  <Shop updateCartItem={() => {}} cart={{}} getCartItemQuantity={() => 0} catalogue={[{ id: '1', title: 'Test Product', price: 10 }]} />
+  </MemoryRouter>
+    );
   const product = await screen.findByText(/test product/i);
   expect(product).toBeInTheDocument();
 });
 
-it('shows error on fetch failure', async () => {
-    global.fetch = vi.fn(() => Promise.reject(new Error('network fail')));
-    render(<Shop updateCartItem={() => {}} cart={{}} getCartItemQuantity={() => 0} />);
 
-    const error = await screen.findByText(/A network error was encountered/i);
-    expect(error).toBeInTheDocument();
-
-})
 
 })

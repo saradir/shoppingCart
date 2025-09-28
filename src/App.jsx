@@ -13,6 +13,7 @@ import CheckoutPage from './pages/CheckoutPage.jsx';
 function App() {
   // cart = { productId: quantity }
   const [cart, setCart] = useState({});
+  // catalogue = [{id, title...}, {id, title...}]
   const [catalogue, setCatalogue] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);

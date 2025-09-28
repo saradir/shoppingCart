@@ -13,10 +13,6 @@ function CheckoutPage ({cart, catalogue, updateCartItem}){
       const product = catalogueById[id];
       return product ? sum + product.price * qty : sum;
     }, 0);
-
-
-
-
     
     return(
     <div className={styles.CheckoutPage}>
