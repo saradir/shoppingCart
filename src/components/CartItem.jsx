@@ -1,6 +1,5 @@
 import { useState, useLayoutEffect } from "react";
 import styles from '../styles/CartItem.module.css';
-import { isVisible } from "@testing-library/user-event/dist/cjs/utils/index.js";
 
 function CartItem({ id, product, qty, updateCartItem}){
             const [localQty, setLocalQty] = useState(qty);

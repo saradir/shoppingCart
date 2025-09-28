@@ -1,0 +1,147 @@
+.checkoutItem {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  background: #2c2c2c;        /* dark sleek background */
+  border: 1px solid #444;     /* subtle border */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  color: #eee;
+  position: relative;
+}
+
+.checkoutItemImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;               /* fixed width for consistency */
+  height: 120px;
+  flex-shrink: 0;
+  background: #1e1e1e;
+  border-radius: 6px;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.checkoutItemImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.itemRight {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: row;        /* 👈 row layout for info */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.itemInfo {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.productName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.qtyControl button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.qtyControl button:hover {
+  background: #388e3c;
+}
+
+.qtyControl input {
+  width: 60px;
+  height: 32px;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: #eee;
+}
+
+.cartItemTotal {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-left: auto;
+}
+
+.removeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.removeBtn:hover {
+  color: #e53935;
+}
+
+.updateBtn {
+  width: 90px;
+  height: 28px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.updateBtn.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.updateBtn:hover:not(:disabled) {
+  background: #388e3c;
+}

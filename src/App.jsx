@@ -69,6 +69,7 @@ function App() {
           <CheckoutPage
             cart={cart}
             catalogue={catalogue}
+            updateCartItem={updateCartItem}
             />
           }
           />
